@@ -23,7 +23,7 @@ centered = false
 metadata/_edit_lock_ = true
 
 [node name="Ball" parent="." instance=ExtResource("1_tgthy")]
-position = Vector2(869, -42)
+position = Vector2(948, 156)
 radius = 15
 color = Color(0.489834, 0.654025, 1, 1)
 
@@ -52,13 +52,11 @@ scale = Vector2(0.6, 0.6)
 [node name="Left Flipper" parent="Main Board" instance=ExtResource("3_cl3w4")]
 position = Vector2(640, 627)
 rotation = 0.349066
-scale = Vector2(1, 1)
 rest_angle = 20.0
 
 [node name="Right Flipper" parent="Main Board" instance=ExtResource("4_ngjkx")]
 position = Vector2(960, 627)
 rotation = -0.349066
-scale = Vector2(1, 1)
 rest_angle = -20.0
 
 [node name="Right Slingshot" parent="Main Board" instance=ExtResource("7_f5omn")]
