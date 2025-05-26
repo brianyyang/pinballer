@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://3ddhht3uegqa"]
+
+[ext_resource type="Texture2D" uid="uid://dmj4t533kwb2k" path="res://assets/wall.png" id="1_1txnf"]
+[ext_resource type="PhysicsMaterial" uid="uid://b45gxx1cetxu7" path="res://physics_materials/flipper_default.tres" id="1_tfrkp"]
+
+[node name="Wall" type="StaticBody2D"]
+physics_material_override = ExtResource("1_tfrkp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_1txnf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-147, -34, 147, -34, 153, -33, 160, -29, 166, -23, 172, -15, 175, -6, 175, 0, 175, 6, 173, 13, 167, 22, 162, 27, 153, 32, 147, 34, -147, 34, -158, 30, -166, 24, -172, 16, -175, 8, -176, 0, -175, -6, -173, -13, -169, -20, -163, -26, -155, -31)

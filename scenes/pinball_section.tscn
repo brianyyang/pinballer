@@ -1,0 +1,127 @@
+[gd_scene load_steps=12 format=3 uid="uid://dhcu4tm3ekt2p"]
+
+[ext_resource type="Texture2D" uid="uid://gfquwcjjxc36" path="res://assets/bg.jpg" id="1_adap0"]
+[ext_resource type="PackedScene" uid="uid://comecc41jtvts" path="res://scenes/ball.tscn" id="1_tgthy"]
+[ext_resource type="PackedScene" uid="uid://3ddhht3uegqa" path="res://scenes/board_pieces/wall.tscn" id="3_370jo"]
+[ext_resource type="PackedScene" uid="uid://qiu4famh3wb8" path="res://scenes/flippers/flipper_left.tscn" id="3_cl3w4"]
+[ext_resource type="PackedScene" uid="uid://jpevy4x8oujy" path="res://scenes/flippers/flipper_right.tscn" id="4_ngjkx"]
+[ext_resource type="Theme" uid="uid://cqdvo73vfg2vn" path="res://main_theme.tres" id="5_8ws7d"]
+[ext_resource type="PhysicsMaterial" uid="uid://c1ihd1bkh6uis" path="res://physics_materials/bouncy.tres" id="6_we4ba"]
+[ext_resource type="PackedScene" uid="uid://dmu2li8wfxpfc" path="res://scenes/board_pieces/slingshot.tscn" id="7_f5omn"]
+[ext_resource type="PackedScene" uid="uid://cc7gl2ljwfmb4" path="res://scenes/board_pieces/bumper.tscn" id="9_w2vdm"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8ws7d"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_we4ba"]
+
+[node name="PinballSection" type="Node2D"]
+metadata/_edit_lock_ = true
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("1_adap0")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Ball" parent="." instance=ExtResource("1_tgthy")]
+position = Vector2(869, -42)
+radius = 15
+color = Color(0.489834, 0.654025, 1, 1)
+
+[node name="Main Board" type="Node" parent="."]
+
+[node name="Left Vertical Wall" parent="Main Board" instance=ExtResource("3_370jo")]
+position = Vector2(464, 476)
+rotation = 1.48353
+scale = Vector2(0.6, 0.6)
+
+[node name="Right Vertical Wall" parent="Main Board" instance=ExtResource("3_370jo")]
+position = Vector2(1136, 476)
+rotation = -1.48353
+scale = Vector2(0.6, -0.6)
+
+[node name="Left Wall" parent="Main Board" instance=ExtResource("3_370jo")]
+position = Vector2(552, 593)
+rotation = 0.349066
+scale = Vector2(0.6, 0.6)
+
+[node name="Right Wall" parent="Main Board" instance=ExtResource("3_370jo")]
+position = Vector2(1048, 593)
+rotation = -0.349066
+scale = Vector2(0.6, 0.6)
+
+[node name="Left Flipper" parent="Main Board" instance=ExtResource("3_cl3w4")]
+position = Vector2(640, 627)
+rotation = 0.349066
+scale = Vector2(1, 1)
+rest_angle = 20.0
+
+[node name="Right Flipper" parent="Main Board" instance=ExtResource("4_ngjkx")]
+position = Vector2(960, 627)
+rotation = -0.349066
+scale = Vector2(1, 1)
+rest_angle = -20.0
+
+[node name="Right Slingshot" parent="Main Board" instance=ExtResource("7_f5omn")]
+position = Vector2(1025, 452)
+scale = Vector2(0.5, 0.5)
+
+[node name="Left Slingshot" parent="Main Board" instance=ExtResource("7_f5omn")]
+position = Vector2(575, 452)
+rotation = -3.14159
+scale = Vector2(0.5, -0.5)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="ColorRect" parent="UI"]
+modulate = Color(1, 1, 1, 0.301961)
+offset_right = 320.0
+offset_bottom = 720.0
+
+[node name="Stack" type="VBoxContainer" parent="UI"]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 320.0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="UI/Stack"]
+layout_mode = 2
+theme = ExtResource("5_8ws7d")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Score"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Boundaries" type="Node" parent="."]
+
+[node name="Left" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(320, 360)
+physics_material_override = ExtResource("6_we4ba")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Left"]
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_8ws7d")
+
+[node name="Right" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(1280, 360)
+physics_material_override = ExtResource("6_we4ba")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Right"]
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_we4ba")
+
+[node name="Bumper" parent="." instance=ExtResource("9_w2vdm")]
+position = Vector2(528, 165)
+scale = Vector2(0.3, 0.3)
+
+[node name="Bumper2" parent="." instance=ExtResource("9_w2vdm")]
+position = Vector2(713, 279)
+scale = Vector2(0.3, 0.3)
+
+[node name="Bumper4" parent="." instance=ExtResource("9_w2vdm")]
+position = Vector2(867, 280)
+scale = Vector2(0.3, 0.3)
+
+[node name="Bumper3" parent="." instance=ExtResource("9_w2vdm")]
+position = Vector2(1053, 179)
+scale = Vector2(0.3, 0.3)

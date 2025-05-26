@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cqdvo73vfg2vn"]
+
+[ext_resource type="FontFile" uid="uid://bwlbbc2yth56o" path="res://assets/PressStart2P-vaV7.ttf" id="1_470mv"]
+
+[resource]
+default_font = ExtResource("1_470mv")
+default_font_size = 16
