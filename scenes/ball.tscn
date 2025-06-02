@@ -5,6 +5,8 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_cxlvu"]
 
 [node name="Ball" type="RigidBody2D"]
+collision_mask = 6
+contact_monitor = true
 script = ExtResource("1_7s4qf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

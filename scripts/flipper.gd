@@ -19,3 +19,8 @@ func _physics_process(delta):
 	var max_step = flipper_speed * delta
 	angle_diff = clamp(angle_diff, -max_step, max_step)
 	rotation_degrees += angle_diff
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.collision_layer == 1:
+		SignalBus.emit_signal("hitstun")

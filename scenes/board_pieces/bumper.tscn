@@ -4,9 +4,10 @@
 [ext_resource type="PhysicsMaterial" uid="uid://c1ihd1bkh6uis" path="res://physics_materials/bouncy.tres" id="1_5lrag"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5lrag"]
-radius = 64.5
+radius = 61.5
 
 [node name="Bumper" type="StaticBody2D"]
+collision_layer = 2
 physics_material_override = ExtResource("1_5lrag")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

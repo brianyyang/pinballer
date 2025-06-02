@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b5vrxwdlitaq8" path="res://assets/flipper.png" id="2_j537t"]
 
 [node name="Flipper" type="AnimatableBody2D"]
+collision_layer = 2
 physics_material_override = ExtResource("1_d3amj")
 script = ExtResource("1_otgx2")
 pressed_angle = -30.0
@@ -21,3 +22,13 @@ flip_h = true
 visible = false
 position = Vector2(-13, 0)
 polygon = PackedVector2Array(-10, 0, -9, -6, -7, -11, -5, -14, 0, -19, 6, -22, 11, -23, 17, -23, 142, -6, 146, -5, 150, -2, 152, 1, 154, 4, 155, 8, 154, 12, 151, 18, 147, 21, 143, 22, 10, 22, 3, 20, -4, 15, -8, 9)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+visible = false
+position = Vector2(-13, 0)
+polygon = PackedVector2Array(-10, 0, -9, -6, -7, -11, -5, -14, 0, -19, 6, -22, 11, -23, 17, -23, 142, -6, 146, -5, 150, -2, 152, 1, 154, 4, 155, 8, 154, 12, 151, 18, 147, 21, 143, 22, 10, 22, 3, 20, -4, 15, -8, 9)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3lfiscessio"]
+
+[ext_resource type="PackedScene" uid="uid://3ddhht3uegqa" path="res://scenes/board_pieces/wall.tscn" id="1_uv8yc"]
+[ext_resource type="Texture2D" uid="uid://67nsqjbl8044" path="res://assets/wall_filling.png" id="2_ac05f"]
+
+[node name="Elbow" type="Node2D"]
+
+[node name="Wall2" parent="." instance=ExtResource("1_uv8yc")]
+position = Vector2(-15, -137)
+rotation = 1.48353
+
+[node name="Wall" parent="." instance=ExtResource("1_uv8yc")]
+position = Vector2(125, 45)
+rotation = 0.349066
+
+[node name="Cover" type="Sprite2D" parent="."]
+position = Vector2(-15, -137.5)
+rotation = 1.48353
+texture = ExtResource("2_ac05f")

@@ -4,6 +4,7 @@
 [ext_resource type="PhysicsMaterial" uid="uid://c1ihd1bkh6uis" path="res://physics_materials/bouncy.tres" id="1_sr71j"]
 
 [node name="Slingshot" type="StaticBody2D"]
+collision_layer = 2
 physics_material_override = ExtResource("1_sr71j")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
